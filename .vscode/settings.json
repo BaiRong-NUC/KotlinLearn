@@ -1,0 +1,5 @@
+{
+    "code-runner.executorMapByFileExtension": {
+        ".kt": "cd $dirWithoutTrailingSlash && bash /d/Android/Learn/.vscode/run-kotlin.sh \"$fileName\""
+    }
+}

@@ -1,0 +1,17 @@
+# Gradle and Kotlin caches
+.gradle/
+.kotlin/
+
+# Build output
+build/
+bin/
+.jar/
+*.class
+
+# IDE and local machine files
+.idea/
+*.iml
+local.properties
+
+# Logs
+*.log
