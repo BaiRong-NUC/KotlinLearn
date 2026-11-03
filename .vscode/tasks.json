@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Android: 编译并在模拟器运行",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\.vscode\\run-android.ps1",
+                "-BuildType", "${input:androidBuildType}"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": [],
+            "runOptions": { "instanceLimit": 1 },
+            "presentation": { "reveal": "silent", "focus": false, "panel": "dedicated", "clear": false, "showReuseMessage": false }
+        },
+        {
+            "label": "Android: 仅启动已有模拟器",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\.vscode\\run-android.ps1",
+                "-OnlyStart", "-AvdName", "${input:androidAvd}"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": [],
+            "runOptions": { "instanceLimit": 1 },
+            "presentation": { "reveal": "silent", "focus": false, "panel": "dedicated", "clear": false, "showReuseMessage": false }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "androidBuildType",
+            "type": "pickString",
+            "description": "选择编译并安装到模拟器的版本（Release 使用本地调试签名）",
+            "options": [
+                { "label": "Debug（调试版）", "value": "Debug" },
+                { "label": "Release（发布模式，本地运行）", "value": "Release" }
+            ],
+            "default": "Debug"
+        },
+        {
+            "id": "androidAvd",
+            "type": "pickString",
+            "description": "选择已有的 Android 模拟器",
+            "options": ["rootphone_api30", "pdfviewer_api28", "pdfviewer_api26", "pdfviewer_api24"],
+            "default": "rootphone_api30"
+        }
+    ]
+}

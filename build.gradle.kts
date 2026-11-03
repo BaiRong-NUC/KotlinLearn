@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.2.10"
+    id("com.android.application") version "9.2.1" apply false
 }
 
 repositories {
@@ -17,5 +18,6 @@ kotlin {
 sourceSets {
     main {
         kotlin.srcDirs("kotlin")
+        kotlin.exclude("app/**")
     }
 }

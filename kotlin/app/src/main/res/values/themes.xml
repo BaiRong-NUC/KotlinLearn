@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.KotlinLearn" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#006A60</item>
+        <item name="colorPrimaryDark">#004D46</item>
+        <item name="colorAccent">#006A60</item>
+    </style>
+</resources>
